@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div class="custom-page" *ngIf="picture" >
+        <img [src]="picture.data" [alt]="picture.name"/>
+    </div>
+    <ion-fab vertical="bottom" slot="fixed" class="bottom-bar" *ngIf="picture">
+        <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input [(ngModel)]="lastName"></ion-input>
+        </ion-item>
+        <ion-button expand="full" [disabled]="loading || !isNameValid() || picture.name === lastName" (click)="update()">Edit</ion-button>
+        <ion-button expand="full" (click)="saveToGallery(picture)">Save to gallery</ion-button>
+        <ion-button expand="full" color="danger" (click)="destroy(picture)">Delete</ion-button>
+    </ion-fab>
+</ion-content>
