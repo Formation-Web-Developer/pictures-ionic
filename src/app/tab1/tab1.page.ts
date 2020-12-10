@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { StorageService } from '../../services/storage.services';
 import {Picture} from '../../models/Picture';
 import {NavController} from '@ionic/angular';
+import {SQLStorageService} from '../../services/sql.storage.services';
 
 @Component({
   selector: 'app-tab1',
@@ -12,7 +12,7 @@ export class Tab1Page implements OnInit, OnDestroy{
   pictures: Picture[] = [];
   error: boolean = false;
 
-  constructor(private storageService: StorageService, private navCtrl: NavController) {}
+  constructor(private storageService: SQLStorageService, private navCtrl: NavController) {}
 
   ionViewDidEnter(){
     if(this.storageService.needUpdate()){

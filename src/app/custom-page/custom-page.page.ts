@@ -3,6 +3,7 @@ import {Picture} from '../../models/Picture';
 import {ActivatedRoute} from '@angular/router';
 import {StorageService} from '../../services/storage.services';
 import {NavController, ToastController} from '@ionic/angular';
+import {SQLStorageService} from '../../services/sql.storage.services';
 
 @Component({
   selector: 'app-custom-page',
@@ -17,7 +18,7 @@ export class CustomPagePage {
   constructor(
       private route: ActivatedRoute,
       private navCtrl: NavController,
-      private storageService: StorageService,
+      private storageService: SQLStorageService,
       public toastController: ToastController
   ) {
     route.queryParams.subscribe(params=>{

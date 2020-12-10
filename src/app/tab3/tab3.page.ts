@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {NavController, ToastController} from '@ionic/angular';
-import {StorageService} from '../../services/storage.services';
 import {ActivatedRoute} from '@angular/router';
+import {SQLStorageService} from '../../services/sql.storage.services';
 
 @Component({
   selector: 'app-tab3',
@@ -17,7 +17,7 @@ export class Tab3Page {
   constructor(
       private navCtrl: NavController,
       private route: ActivatedRoute,
-      private storageService: StorageService,
+      private storageService: SQLStorageService,
       public toastController: ToastController
   ) {
     route.queryParams.subscribe(params => {
